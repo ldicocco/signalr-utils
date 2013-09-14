@@ -57,15 +57,24 @@ hub.client.newMessage = (data) ->
     _myConnection = connection
     return
 
+
+getUserMediaAsync = (config) ->
+    d = $.Deferred()
+    getUserMedia config,
+        (stream) -> d.resolve stream
+        (error) -> d.reject error
+    
+    return d.promise() 
+
 init = ->
-    getUserMedia video: true, audio: true,
-        (stream) ->
+    p = getUserMediaAsync video: true, audio: true
+    p.done    (stream) ->
             videoElement = document.getElementById 'rtcVideo'
             _myMediaStream = stream
             attachMediaStream(videoElement, _myMediaStream)
             document.querySelector('#startBtn').removeAttribute('disabled')
             return
-        (error) ->
+    p.fail     (error) ->
             alert(JSON.stringify(error)) 
 
     document.querySelector('#startBtn').addEventListener 'click', ->

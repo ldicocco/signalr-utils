@@ -68,7 +68,7 @@ video {
     margin: 20px;
 }
 
-    video.mine {
+    #rtcVideo {
         border: 5px solid green;
     }
 

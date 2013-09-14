@@ -250,6 +250,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\WebRTC\sample.coffee" />
+    <Content Include="Scripts\WebRTC\WebRTCUtils.coffee" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

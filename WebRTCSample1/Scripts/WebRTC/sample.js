@@ -1,5 +1,5 @@
 ﻿(function() {
-  var hub, init, _createConnection, _myConnection, _myMediaStream;
+  var getUserMediaAsync, hub, init, _createConnection, _myConnection, _myMediaStream;
 
   _myConnection = null;
 
@@ -64,17 +64,31 @@
     _myConnection = connection;
   };
 
+  getUserMediaAsync = function(config) {
+    var d;
+    d = $.Deferred();
+    getUserMedia(config, function(stream) {
+      return d.resolve(stream);
+    }, function(error) {
+      return d.reject(error);
+    });
+    return d.promise();
+  };
+
   init = function() {
-    getUserMedia({
+    var p;
+    p = getUserMediaAsync({
       video: true,
       audio: true
-    }, function(stream) {
+    });
+    p.done(function(stream) {
       var videoElement;
       videoElement = document.getElementById('rtcVideo');
       _myMediaStream = stream;
       attachMediaStream(videoElement, _myMediaStream);
       document.querySelector('#startBtn').removeAttribute('disabled');
-    }, function(error) {
+    });
+    p.fail(function(error) {
       return alert(JSON.stringify(error));
     });
     return document.querySelector('#startBtn').addEventListener('click', function() {
