@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ldc.SignalR", "Ldc.SignalR\Ldc.SignalR.csproj", "{12408A2F-9274-4BFE-A961-05892413146C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebRTCSample1", "WebRTCSample1\WebRTCSample1.csproj", "{AB268509-4E0B-425C-B17A-D97BB72E596D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebRTCSample1.Tests", "WebRTCSample1.Tests\WebRTCSample1.Tests.csproj", "{BA601A78-0FC7-401E-8A4A-8ADEDE65E079}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,8 +17,19 @@ Global
 		{12408A2F-9274-4BFE-A961-05892413146C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12408A2F-9274-4BFE-A961-05892413146C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12408A2F-9274-4BFE-A961-05892413146C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB268509-4E0B-425C-B17A-D97BB72E596D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB268509-4E0B-425C-B17A-D97BB72E596D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB268509-4E0B-425C-B17A-D97BB72E596D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB268509-4E0B-425C-B17A-D97BB72E596D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA601A78-0FC7-401E-8A4A-8ADEDE65E079}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA601A78-0FC7-401E-8A4A-8ADEDE65E079}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA601A78-0FC7-401E-8A4A-8ADEDE65E079}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA601A78-0FC7-401E-8A4A-8ADEDE65E079}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
 	EndGlobalSection
 EndGlobal

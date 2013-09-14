@@ -1,0 +1,13 @@
+﻿@{
+	ViewBag.Title = "Index";
+}
+
+@section scripts {
+	<script src="Scripts/jquery.signalR-2.0.0-rc1.min.js"></script>
+	<script src="Scripts/WebRTC/adapter.js"></script>
+	<script src="/signalr/hubs"></script>
+	<script src="/Scripts/WebRtc/sample.js"></script>
+}
+
+<video id="rtcVideo" autoplay class="mine"></video>
+<button id="startBtn" disabled="disabled">Start Call</button>
