@@ -68,13 +68,13 @@ getUserMediaAsync = (config) ->
 
 init = ->
     p = getUserMediaAsync video: true, audio: true
-    p.done    (stream) ->
+    p.done  (stream) ->
             videoElement = document.getElementById 'rtcVideo'
             _myMediaStream = stream
             attachMediaStream(videoElement, _myMediaStream)
             document.querySelector('#startBtn').removeAttribute('disabled')
             return
-    p.fail     (error) ->
+    p.fail  (error) ->
             alert(JSON.stringify(error)) 
 
     document.querySelector('#startBtn').addEventListener 'click', ->
