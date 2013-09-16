@@ -57,14 +57,20 @@ hub.client.newMessage = (data) ->
     _myConnection = connection
     return
 
-
 getUserMediaAsync = (config) ->
     d = $.Deferred()
     getUserMedia config,
         (stream) -> d.resolve stream
+
         (error) -> d.reject error
     
-    return d.promise() 
+    return d.promise()
+
+connectionCreateOfferAsync = (conn, desc) ->
+    d = $.Deferred()
+    conn.createOffer (desc) -> d.resolve(desc)
+        
+    return d.promise()
 
 init = ->
     p = getUserMediaAsync video: true, audio: true
@@ -80,7 +86,8 @@ init = ->
     document.querySelector('#startBtn').addEventListener 'click', ->
         _myConnection ?= _createConnection(null)
         _myConnection.addStream _myMediaStream
-        _myConnection.createOffer (desc) ->
+        p1 = connectionCreateOfferAsync _myConnection
+        p1.done (desc) ->
             _myConnection.setLocalDescription desc, ->
                 hub.server.send JSON.stringify({ "sdp": desc })
                 return

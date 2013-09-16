@@ -1,5 +1,5 @@
 ﻿(function() {
-  var getUserMediaAsync, hub, init, _createConnection, _myConnection, _myMediaStream;
+  var connectionCreateOfferAsync, getUserMediaAsync, hub, init, _createConnection, _myConnection, _myMediaStream;
 
   _myConnection = null;
 
@@ -75,6 +75,15 @@
     return d.promise();
   };
 
+  connectionCreateOfferAsync = function(conn, desc) {
+    var d;
+    d = $.Deferred();
+    conn.createOffer(function(desc) {
+      return d.resolve(desc);
+    });
+    return d.promise();
+  };
+
   init = function() {
     var p;
     p = getUserMediaAsync({
@@ -92,11 +101,13 @@
       return alert(JSON.stringify(error));
     });
     return document.querySelector('#startBtn').addEventListener('click', function() {
+      var p1;
       if (_myConnection == null) {
         _myConnection = _createConnection(null);
       }
       _myConnection.addStream(_myMediaStream);
-      _myConnection.createOffer(function(desc) {
+      p1 = connectionCreateOfferAsync(_myConnection);
+      p1.done(function(desc) {
         _myConnection.setLocalDescription(desc, function() {
           hub.server.send(JSON.stringify({
             "sdp": desc
