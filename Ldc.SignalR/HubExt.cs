@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNet.SignalR;
 
-namespace Ldc.SignalR
+namespace  Ldc.SignalR
 {
 	public class HubExt : Hub
 	{
