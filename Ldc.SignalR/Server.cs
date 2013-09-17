@@ -8,8 +8,8 @@ namespace Ldc.SignalR
 {
 	class Server
 	{
-		public string ConnectionId { get; set; }
 		public string Name { get; set; }
 		public string Interface { get; set; }
+		public string ConnectionId { get; set; }
 	}
 }

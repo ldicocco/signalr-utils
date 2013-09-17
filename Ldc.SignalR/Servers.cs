@@ -41,27 +41,30 @@ namespace Ldc.SignalR
 		{
 			lock (syncRoot)
 			{
-				if (!_servers.ContainsKey(server.ConnectionId))
+				if (!_servers.ContainsKey(server.Name))
 				{
-					_servers.Add(server.ConnectionId, server);
+					_servers.Add(server.Name, server);
 				}
 			}
 		}
 
-		public void Remove(string connectionId)
+		public void Remove(string name)
 		{
 			lock (syncRoot)
 			{
-				_servers.Remove(connectionId);
+				if (_servers.ContainsKey(name))
+				{
+					_servers.Remove(name);
+				}
 			}
 		}
 
-		public Server Get(string connectionId)
+		public Server Get(string name)
 		{
 			lock (syncRoot)
 			{
 				Server server = null;
-				_servers.TryGetValue(connectionId, out server);
+				_servers.TryGetValue(name, out server);
 				return server;
 			}
 		}

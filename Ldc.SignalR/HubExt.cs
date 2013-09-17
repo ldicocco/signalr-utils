@@ -9,9 +9,19 @@ namespace  Ldc.SignalR
 {
 	public class HubExt : Hub
 	{
-		public Task _result(Guid id, Object result)
+		public void _registerServer(string name, string interfaces)
 		{
-			return null;
+			var server = new Server {Name = name, Interface = interfaces, ConnectionId = Context.ConnectionId };
+			Servers.Instance.Add(server);
+		}
+
+		public void _unregisterServer(string name)
+		{
+			Servers.Instance.Remove(name);
+		}
+
+		public void _result(Guid id, Object result)
+		{
 		}
 	}
 }
