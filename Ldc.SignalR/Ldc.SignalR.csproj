@@ -63,6 +63,8 @@
     <Compile Include="PendingRequest.cs" />
     <Compile Include="PendingRequests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Server.cs" />
+    <Compile Include="Servers.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
