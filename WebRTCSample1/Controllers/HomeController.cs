@@ -16,5 +16,11 @@ namespace WebRTCSample1.Controllers
             return View();
         }
 
+
+        public ActionResult Test()
+        {
+            return View();
+        }
+
     }
 }

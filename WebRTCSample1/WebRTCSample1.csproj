@@ -251,6 +251,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\WebRTC\sample.coffee" />
     <Content Include="Scripts\WebRTC\WebRTCUtils.coffee" />
+    <Content Include="Views\Home\Test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
