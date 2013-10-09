@@ -13,7 +13,7 @@ namespace WebRTCSample1.Controllers
 
         public ActionResult Index()
         {
-            return  View();
+            return View();
         }
 
     }
